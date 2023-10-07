@@ -1,0 +1,9 @@
+name: ml4gw
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - poetry
+  - krb5
+  - ciecplib>=0.7.1
+  - requests-gssapi>=1.2.3
