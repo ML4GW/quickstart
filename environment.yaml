@@ -7,3 +7,5 @@ dependencies:
   - krb5
   - ciecplib>=0.7.1
   - requests-gssapi>=1.2.3
+  - law
+  - luigi
