@@ -21,7 +21,7 @@ MINICONDA_INSTALL_DIR := ~/miniconda3
 that contains:
 - [`poetry`](https://python-poetry.org/), which is used for package management of ml4gw applications like [`aframe`](github.com/ml4gw/aframe/) and [`PE`](github.com/ml4gw/PE).
 - `krb5`, `ciecplib`, and `requests-gssapi` libraries for renewing authentication credentials.
-- [`luigi`](https://luigi.readthedocs.io/en/stable/) and [`law`](https://law.readthedocs.io/en/latest/) pipelining tools that are used to launch analyses. 
+- [`luigi`](https://luigi.readthedocs.io/en/stable/) and [`law`](https://law.readthedocs.io/en/latest/) pipeline construction tools that are used to launch analyses. 
 
 ### 3. Add necessary LDG authentication variables to your `~/.bash_profile`
 - [`KRB5_KTNAME`](https://computing.docs.ligo.org/guide/auth/kerberos/?h=krb) holds the path to the keytab for passwordless renewal of credentials.
