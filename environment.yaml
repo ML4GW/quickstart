@@ -7,5 +7,8 @@ dependencies:
   - krb5
   - ciecplib>=0.7.1
   - requests-gssapi>=1.2.3
-  - law
   - luigi
+  - pip
+  - pip:
+    - git+https://github.com/riga/law.git@master
+  
