@@ -1,10 +1,10 @@
 # X509 auth directories
 KERBEROS := ~/.kerberos 
 CERT := ~/cilogon_cert
-
 # auth environment variables
 X509_USER_PROXY := $(CERT)/CERT_KEY.pem
 KRB5_KTNAME := $(KERBEROS)/ligo.org.keytab
+ECP_IDP := LIGO
 
 # base conda environment for ml4gw development
 CONDA_ENV_NAME := ml4gw
