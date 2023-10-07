@@ -1,8 +1,7 @@
 # ml4gw-quickstart
+Makefile for configuring environment to develop `ml4gw` applications on LDG.
 
-## Setup
-Makefile for configuring environment to develop `ml4gw` applications on LDG. 
-
+## Running Make
 Simply running `make` at the command line will:
 
 ### 1. Download and install miniconda
@@ -28,8 +27,8 @@ that contains:
 - [`X509_USER_PROXY`](https://computing.docs.ligo.org/guide/auth/x509/) holds path to the X509 credential for data access.
 - [`ECP_IDP`](https://computing.docs.ligo.org/guide/auth/x509/?h=ecp_idp#ligo) holds the default identitiy provider for generating new credentials.
 
-
-Once complete, you still need to generate the kerberos keytab in order to automate access the LIGO data services required. Enter the `ml4gw` conda environment
+## After Running Make
+Once complete, you still need to generate the kerberos keytab in order to automate passwordless generation of credentials to the LIGO data services required. Enter the `ml4gw` conda environment
 
 ```console
 conda activate ml4gw
