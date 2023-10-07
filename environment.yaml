@@ -8,7 +8,9 @@ dependencies:
   - ciecplib>=0.7.1
   - requests-gssapi>=1.2.3
   - luigi
+  - pre-commit
   - pip
+  # TODO: set to stable version of law
   - pip:
     - git+https://github.com/riga/law.git@master
   
