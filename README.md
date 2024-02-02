@@ -34,7 +34,7 @@ section on Nautilus below for more information on why this is necessary.
 
 ### 3. Add necessary LDG authentication variables to your `~/.bash_profile`
 The below environment variables configure your environment for authentication to 
-LDG data services. For more details, please see the LDG computing [docs](https://computing.docs.ligo.org/guide/computing-centres/ldg/)
+LDG data services. For more details, please see the [LDG computing docs](https://computing.docs.ligo.org/guide/computing-centres/ldg/)
 
 - [`KRB5_KTNAME`](https://computing.docs.ligo.org/guide/auth/kerberos/?h=krb) holds the path to the keytab for passwordless renewal of credentials.
 - [`X509_USER_PROXY`](https://computing.docs.ligo.org/guide/auth/x509/) holds path to the X509 credential for data access.
@@ -72,9 +72,9 @@ to WandB servers, you need to set the `WANDB_API_KEY` environment variable. Your
 
 ## Nautilus and S3
 Nautilus is a cluster of mostly GPU resources. `ml4gw` applications like `aframe` take advantage of Nautilus for
-launching remote training jobs, and larger scale hyperparameter searches. See the nautilus [docs](https://docs.nationalresearchplatform.org/userdocs/start/get-access/) to get setup with a nautilus account, and visit the [quickstart](https://docs.nationalresearchplatform.org/userdocs/start/quickstart/) page for information on configuring the Kubernetes command line tool, `kubectl`. `kubectl` was already installed for you by running the `Makefile`. It is also recommended to read through all of their docs to get familiar with the basics of Kubernetes.
+launching remote training jobs, and larger scale hyperparameter searches. See the [nautilus docs](https://docs.nationalresearchplatform.org/userdocs/start/get-access/) to get setup with a nautilus account, and visit the [nautilus quickstart](https://docs.nationalresearchplatform.org/userdocs/start/quickstart/) page for information on configuring the Kubernetes command line tool, `kubectl`. `kubectl` was already installed for you by running the `Makefile`. It is also recommended to read through all of their docs to get familiar with the basics of Kubernetes.
 
-Nautilus also has S3 storage locations to allow accessing data from within jobs. Please see the S3 [docs](https://docs.nationalresearchplatform.org/userdocs/storage/ceph-s3/) for information on getting S3 credentials from the admins. Once you recieve your credentials, store them in 
+Nautilus also has S3 storage locations to allow accessing data from within jobs. Please see the [nautilus S3 docs](https://docs.nationalresearchplatform.org/userdocs/storage/ceph-s3/) for information on getting S3 credentials from the admins. Once you recieve your credentials, store them in 
 `$HOME/.aws/credentials` as 
 
 ```
