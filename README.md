@@ -5,6 +5,8 @@ environment on the LIGO data grid (LDG) to interact with `ml4gw` applications.
 Currently, this setup is targeted for running the [`aframe`](github.com/ml4gw/aframev2) pipeline,
 but many of these tools will be applicable to other projects as well. 
 
+There are a lot of steps below. If anything goes wrong, please open an issue on this repo!
+
 ## Makefile
 The main utililty of this repository is a `Makefile` for installing software, 
 and setting up environment variables. 
