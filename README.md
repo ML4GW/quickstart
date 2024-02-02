@@ -83,6 +83,7 @@ aws_access_key_id = <access key>
 aws_secret_access_key = <secret key>
 ```
 
+Also, store them in the `AWS_SECRET_ACCESS_KEY` and `AWS_ACCESS_KEY_ID` environment variables in your `~/.bash_profile`
 
 
 
