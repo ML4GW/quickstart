@@ -1,5 +1,5 @@
 # X509 auth directories
-KERBEROS := ~/.kerberos 
+KERBEROS := ~/.kerberos
 CERT := ~/cilogon_cert
 # auth environment variables
 X509_USER_PROXY := $(CERT)/CERT_KEY.pem
