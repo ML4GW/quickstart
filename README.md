@@ -44,8 +44,7 @@ LDG data services. For more details, please see the LDG computing [docs](https:/
 Once the `Makefile` completes, there a still a few setup tasks required.
 
 ### Kerberos Keytab
-A kerberos keytab allows for automaticm, passwordless generation of credentials to LIGO data services. The `ktutil` command line tool 
-used to generate kerberos keytabs is already installed system wide on the LDG cluster. Generate a kerberos keytab by running:
+A kerberos keytab allows for password-less generation of credentials to LIGO data services. This can be extremely useful for automating data access scripts. The `ktutil` command line tool used to generate kerberos keytabs is already installed system wide on the LDG cluster. Generate a kerberos keytab by running:
 
 ```console
 $ ktutil
