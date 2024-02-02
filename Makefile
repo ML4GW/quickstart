@@ -17,7 +17,7 @@ MINICONDA_URL := https://repo.anaconda.com/miniconda/$(MINICONDA_INSTALLER)
 # default miniconda install directory
 MINICONDA_INSTALL_DIR := ~/miniconda3-test
 
-all: create-dirs export-vars install-conda create-conda-env 
+all: create-dirs export-vars install-conda install-poetry install-kubectl
 
 # make auth directories
 create-dirs:
@@ -37,6 +37,13 @@ install-conda:
 	@rm $(MINICONDA_INSTALLER)
 	@echo "Miniconda installed successfully!"
 
-create-conda-env:
-	@conda env create -f $(CONDA_ENV_FILE)
+install-poetry:
+	@echo "Installing poetry..."
+	@curl -sSL https://install.python-poetry.org | POETRY_HOME=$(MINICONDA_INSTALL_DIR) python3 - --version 1.7.1
+	@poetry config virtualenvs.path $(MINICONDA_INSTALL_DIR)/envs
 
+install-kubectl:
+	@echo "Installing kubectl..."
+	@curl -LO 'https://dl.k8s.io/release/v1.29.1/bin/linux/amd64/kubectl'
+	@chmod +x kubectl
+	@mv kubectl $(MINICONDA_INSTALL_DIR)/bin
