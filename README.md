@@ -31,6 +31,16 @@ your poetry settings such that all environments you build with poetry are stored
 `kubectl` is a command line tool for submitting and interacting with jobs on a Kubernetes cluster. See the 
 section on Nautilus below for more information on why this is necessary. 
 
+### 4. Install S3cmd
+The `s3cmd` command line utility provides tools for uploading, retreiving and managing files stored on remote S3 servers.
+For example,
+
+```
+s3cmd ls s3://{bucket}/{path}
+```
+
+will list all of the files and directories stored at the given path.
+See 
 
 ### 3. Add necessary LDG authentication variables to your `~/.bash_profile`
 The below environment variables configure your environment for authentication to 
