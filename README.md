@@ -2,7 +2,7 @@
 Welcome to `ml4gw`! Here you will find assistance setting up your software
 environment on the LIGO data grid (LDG) to interact with `ml4gw` applications. 
 
-Currently, this setup is targeted for running the [`aframe`](github.com/ml4gw/aframev2) pipeline,
+Currently, this setup is targeted mostly for running the [`aframe`](github.com/ml4gw/aframev2) pipeline,
 but many of these tools will be applicable to other projects as well. 
 
 There are a lot of steps below. If anything goes wrong, please open an issue on this repo!
@@ -11,7 +11,14 @@ There are a lot of steps below. If anything goes wrong, please open an issue on 
 The main utililty of this repository is a `Makefile` for installing software, 
 and setting up environment variables. 
 
-Simply running `make` at the command line will:
+Begin by cloning, and entering this repository on your local machine:
+
+```
+git clone git@github.com:EthanMarx/ml4gw-quickstart.git
+cd ml4gw-quickstart
+```
+
+Then, simply running `make` at the command line will:
 
 ### 1. Download and install miniconda
 A local installation of [`miniconda`](https://docs.conda.io/en/latest/miniconda.html)
