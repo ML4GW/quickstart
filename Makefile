@@ -52,5 +52,5 @@ install-kubectl:
 install-s3cmd:
 	@wget https://sourceforge.net/projects/s3tools/files/s3cmd/2.2.0/s3cmd-2.2.0.tar.gz
 	@tar xzf s3cmd-2.2.0.tar.gz
-	@cd s3cmd-2.2.0 && python setup.py install
+	@cd s3cmd-2.2.0 && $(MINICONDA_INSTALL_DIR)/bin/python setup.py install
 	@rm -rf s3cmd*

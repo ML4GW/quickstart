@@ -11,11 +11,13 @@ There are a lot of steps below. If anything goes wrong, please open an issue on 
 The main utililty of this repository is a `Makefile` for installing software, 
 and setting up environment variables. 
 
-Begin by cloning, and entering this repository on your local machine:
+Begin by cloning, and entering this repository on your local machine
+
+> **Note** Ensure that you have added a [github ssh key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) to your account 
 
 ```
-git clone git@github.com:EthanMarx/ml4gw-quickstart.git
-cd ml4gw-quickstart
+git clone git@github.com:ml4gw/quickstart.git
+cd quickstart
 ```
 
 Then, simply running `make` at the command line will:
@@ -58,7 +60,25 @@ LDG data services. For more details, please see the [LDG computing docs](https:/
 - [`ECP_IDP`](https://computing.docs.ligo.org/guide/auth/x509/?h=ecp_idp#ligo) holds the default identitiy provider for generating new credentials.
 
 ## After Running Make
-Once the `Makefile` completes, there a still a few setup tasks required.
+Once the `Makefile` completes, there a still a few setup tasks required. 
+
+### Activating Conda
+To activate your newly created `conda` `base` environment you can run
+
+```bash
+conda activate
+```
+
+or simply restart your shell! This conda environment will now automatically be activated each time you login.
+
+If you do not wan't this environment to be activated by default you can configure conda to not activate by default:
+
+```
+conda config --set auto_activate_base false
+```
+
+
+
 
 ### Kerberos Keytab
 A kerberos keytab allows for password-less generation of credentials to LIGO data services. This can be extremely useful for automating data access scripts. The `ktutil` command line tool used to generate kerberos keytabs is already installed system wide on the LDG cluster. Generate a kerberos keytab by running:
