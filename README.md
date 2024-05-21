@@ -48,10 +48,9 @@ For example,
 s3cmd ls s3://{bucket}/{path}
 ```
 
-will list all of the files and directories stored at the given path.
-See 
+will list all of the files and directories stored at the given path once you have completed the credential setup below.
 
-### 3. Add necessary LDG authentication variables to your `~/.bash_profile`
+### 5. Add necessary LDG authentication variables to your `~/.bash_profile`
 The below environment variables configure your environment for authentication to 
 LDG data services. For more details, please see the [LDG computing docs](https://computing.docs.ligo.org/guide/computing-centres/ldg/)
 
@@ -118,6 +117,16 @@ Nautilus also has S3 storage locations to allow accessing data from within jobs.
 [default]
 aws_access_key_id = <access key>
 aws_secret_access_key = <secret key>
+```
+As well as in `$HOME/.s3cfg`:
+
+```
+[default]
+access_key = <access key>
+host_base = https://s3-west.nrp-nautilus.io
+host_bucket = https://s3-west.nrp-nautilus.io
+secret_key = <secret key>
+use_https = True
 ```
 
 Also, store them in the `AWS_SECRET_ACCESS_KEY` and `AWS_ACCESS_KEY_ID` environment variables in your `~/.bash_profile`
