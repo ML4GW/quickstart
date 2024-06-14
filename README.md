@@ -36,8 +36,8 @@ Additionally, the install location can be specified via altering the `MINICONDA_
 for dependency management, building virtual environments, and publishing packages to pypi. The `Makefile` will configure
 your poetry settings such that all environments you build with poetry are stored in `$MINICONDA_INSTALL_DIR/envs`.
 
-### 3. Install Kubectl
-`kubectl` is a command line tool for submitting and interacting with jobs on a Kubernetes cluster. See the 
+### 3. Install Kubectl and Helm
+`kubectl` and `helm` are command line tools for submitting and interacting with jobs on a Kubernetes cluster. See the 
 section on Nautilus below for more information on why this is necessary. 
 
 ### 4. Install S3cmd
@@ -96,6 +96,12 @@ mv ligo.org.keytab ~/.kerberos
 ```
 
 Now your all set! To refresh your X509 credential, simply run
+
+```console
+kinit albert.einstein
+```
+
+and then 
 
 ```console
 ecp-get-cert -k

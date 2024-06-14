@@ -14,7 +14,7 @@ MINICONDA_URL := https://repo.anaconda.com/miniconda/$(MINICONDA_INSTALLER)
 # default miniconda install directory
 MINICONDA_INSTALL_DIR := ~/miniconda3
 
-all: mkdirs export-vars install-conda install-poetry install-kubectl install-s3cmd
+all: mkdirs export-vars install-conda install-helm install-poetry install-kubectl install-s3cmd
 
 # make auth directories
 mkdirs:
@@ -32,9 +32,6 @@ install-conda:
 	@echo "Installing Miniconda..."
 	@bash $(MINICONDA_INSTALLER) -b -p $(MINICONDA_INSTALL_DIR)
 	@$(MINICONDA_INSTALL_DIR)/bin/conda init
-	@echo $PATH
-	@source ~/.bashrc
-	@echo $PATH
 	@rm $(MINICONDA_INSTALLER)
 	@echo "Miniconda installed successfully!"
 
@@ -54,3 +51,9 @@ install-s3cmd:
 	@tar xzf s3cmd-2.2.0.tar.gz
 	@cd s3cmd-2.2.0 && $(MINICONDA_INSTALL_DIR)/bin/python setup.py install
 	@rm -rf s3cmd*
+
+install-helm:
+	@curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+	@chmod 700 get_helm.sh
+	@USE_SUDO=false HELM_INSTALL_DIR=$(MINICONDA_INSTALL_DIR)/bin/ ./get_helm.sh
+	@rm ./get_helm.sh
