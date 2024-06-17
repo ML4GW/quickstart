@@ -12,9 +12,9 @@ MINICONDA_INSTALLER := Miniconda3-py39_23.11.0-2-Linux-x86_64.sh
 MINICONDA_URL := https://repo.anaconda.com/miniconda/$(MINICONDA_INSTALLER)
 
 # default miniconda install directory
-MINICONDA_INSTALL_DIR := ~/miniconda3
+MINICONDA_INSTALL_DIR := ~/miniconda3-tmp
 
-all: mkdirs export-vars install-conda install-helm install-poetry install-kubectl install-s3cmd
+all: mkdirs export-vars install-conda install-aws install-helm install-poetry install-kubectl install-s3cmd
 
 # make auth directories
 mkdirs:
@@ -45,6 +45,13 @@ install-kubectl:
 	@curl -LO 'https://dl.k8s.io/release/v1.29.1/bin/linux/amd64/kubectl'
 	@chmod +x kubectl
 	@mv kubectl $(MINICONDA_INSTALL_DIR)/bin
+
+install-aws:
+	@curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+	@unzip awscliv2.zip
+	@./aws/install --bin-dir $(MINICONDA_INSTALL_DIR)/bin --install-dir ./aws/
+	@rm -rf ./aws/
+	@rm awscliv2.zip
 
 install-s3cmd:
 	@wget https://sourceforge.net/projects/s3tools/files/s3cmd/2.2.0/s3cmd-2.2.0.tar.gz
