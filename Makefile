@@ -12,7 +12,7 @@ MINICONDA_INSTALLER := Miniconda3-py39_23.11.0-2-Linux-x86_64.sh
 MINICONDA_URL := https://repo.anaconda.com/miniconda/$(MINICONDA_INSTALLER)
 
 # default miniconda install directory
-MINICONDA_INSTALL_DIR := ~/miniconda3-tmp
+MINICONDA_INSTALL_DIR := ~/miniconda3
 
 all: mkdirs export-vars install-conda install-aws install-helm install-poetry install-kubectl install-s3cmd
 
