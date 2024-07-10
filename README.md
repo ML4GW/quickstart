@@ -11,7 +11,7 @@ There are a lot of steps below. If anything goes wrong, please open an issue on 
 The main utililty of this repository is a `Makefile` for installing software, 
 and setting up environment variables. 
 
-Begin by cloning, and entering this repository on your local machine
+Begin by cloning, and entering this repository on your account on LDG:
 
 > **Note** Ensure that you have added a [github ssh key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) to your account 
 
