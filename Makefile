@@ -49,8 +49,8 @@ install-kubectl:
 install-aws:
 	@curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 	@unzip awscliv2.zip
-	@./aws/install --bin-dir $(MINICONDA_INSTALL_DIR)/bin --install-dir ./aws/
-	@rm -rf ./aws/
+	@./aws/install --bin-dir $(MINICONDA_INSTALL_DIR)/bin --install-dir $(MINICONDA_INSTALL_DIR)/aws-cli
+	@rm -rf  $(PWD)/aws
 	@rm awscliv2.zip
 
 install-s3cmd:
