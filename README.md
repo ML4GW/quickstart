@@ -15,42 +15,19 @@ Begin by cloning, and entering this repository on your account on LDG:
 
 > **Note** Ensure that you have added a [github ssh key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) to your account 
 
-```
+```console
 git clone git@github.com:ml4gw/quickstart.git
 cd quickstart
 ```
 
-Then, simply running `make` at the command line will:
+Now, you can run the steps below to configure the necessary software.
+To just run `aframe`, only steps 0-2 are necessary. To contribute to the development of `aframe`, it may be desirable to complete all steps.
 
-### 1. Download and install miniconda
-A local installation of [`miniconda`](https://docs.conda.io/en/latest/miniconda.html)
-can be quite useful as a container for your `ml4gw` related environments. 
-
-The specific miniconda installation can be adjusted by changing the `MINICONDA_INSTALLER` variable in the `Makefile`.
-The default version should work on LDG clusters.
-
-Additionally, the install location can be specified via altering the `MINICONDA_INSTALL_DIR` environment variable in the `Makefile`.
-
-### 2. Install Poetry
-[Poetry](https://python-poetry.org/docs/) is an environment management tool similar to pip. `ml4gw` projects use poetry
-for dependency management, building virtual environments, and publishing packages to pypi. The `Makefile` will configure
-your poetry settings such that all environments you build with poetry are stored in `$MINICONDA_INSTALL_DIR/envs`.
-
-### 3. Install Kubectl and Helm
-`kubectl` and `helm` are command line tools for submitting and interacting with jobs on a Kubernetes cluster. See the 
-section on Nautilus below for more information on why this is necessary. 
-
-### 4. Install S3cmd
-The `s3cmd` command line utility provides tools for uploading, retreiving and managing files stored on remote S3 servers.
-For example,
-
+### 0. Add necessary LDG authentication variables to your `~/.bash_profile`
+```console
+make mkdirs export-vars
 ```
-s3cmd ls s3://{bucket}/{path}
-```
-
-will list all of the files and directories stored at the given path once you have completed the credential setup below.
-
-### 5. Add necessary LDG authentication variables to your `~/.bash_profile`
+If you're new to the LIGO Data Grid, you may need to configure authentication settings,
 The below environment variables configure your environment for authentication to 
 LDG data services. For more details, please see the [LDG computing docs](https://computing.docs.ligo.org/guide/computing-centres/ldg/)
 
@@ -58,25 +35,55 @@ LDG data services. For more details, please see the [LDG computing docs](https:/
 - [`X509_USER_PROXY`](https://computing.docs.ligo.org/guide/auth/x509/) holds path to the X509 credential for data access.
 - [`ECP_IDP`](https://computing.docs.ligo.org/guide/auth/x509/?h=ecp_idp#ligo) holds the default identitiy provider for generating new credentials.
 
-## After Running Make
-Once the `Makefile` completes, there a still a few setup tasks required. 
-
-### Activating Conda
-To activate your newly created `conda` `base` environment you can run
-
-```bash
-conda activate
+### 1. Download and install miniconda
+```console
+make install-conda
+source ~/.bashrc
 ```
+A local installation of [`miniconda`](https://docs.conda.io/en/latest/miniconda.html)
+can be quite useful as a container for your `ml4gw` related environments. 
 
-or simply restart your shell! This conda environment will now automatically be activated each time you login.
+The specific miniconda installation can be adjusted by changing the `MINICONDA_INSTALLER` variable in the `Makefile`.
+The default version should work on LDG clusters.
 
-If you do not wan't this environment to be activated by default you can configure conda to not activate by default:
+Additionally, the install location can be specified via altering the `MINICONDA_INSTALL_DIR` environment variable in the `Makefile`.
+This conda environment will now automatically be activated each time you login.
 
-```
+If you do not want this environment to be activated by default you can configure conda to not activate by default:
+```console
 conda config --set auto_activate_base false
 ```
 
+### 2. Install Poetry
+```console
+make install-poetry
+```
+[Poetry](https://python-poetry.org/docs/) is an environment management tool similar to pip. `ml4gw` projects use poetry
+for dependency management, building virtual environments, and publishing packages to pypi. The `Makefile` will configure
+your poetry settings such that all environments you build with poetry are stored in `$MINICONDA_INSTALL_DIR/envs`.
 
+### 3. Install Kubectl and Helm
+```console
+make install-kubectl install-helm
+```
+`kubectl` and `helm` are command line tools for submitting and interacting with jobs on a Kubernetes cluster. See the 
+section on Nautilus below for more information on why this is necessary. 
+
+### 4. Install S3cmd
+```console
+make install-s3cmd
+```
+The `s3cmd` command line utility provides tools for uploading, retreiving and managing files stored on remote S3 servers.
+For example,
+
+```console
+s3cmd ls s3://{bucket}/{path}
+```
+
+will list all of the files and directories stored at the given path once you have completed the credential setup below.
+
+## After Running Make
+Once the you're done installing things, there are still a few setup tasks required. 
 
 
 ### Kerberos Keytab
@@ -95,7 +102,7 @@ with `albert.einstein` replaced with your LIGO username. Move this keytab file t
 mv ligo.org.keytab ~/.kerberos
 ```
 
-Now your all set! To refresh your X509 credential, simply run
+Now you're all set! To refresh your X509 credential, simply run
 
 ```console
 kinit albert.einstein
