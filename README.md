@@ -83,7 +83,7 @@ s3cmd ls s3://{bucket}/{path}
 will list all of the files and directories stored at the given path once you have completed the credential setup below.
 
 ## After Running Make
-Once the you're done installing things, there are still a few setup tasks required. 
+Once you're done installing things, there are still a few setup tasks required. 
 
 
 ### Kerberos Keytab
